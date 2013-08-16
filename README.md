@@ -4,6 +4,7 @@ Quotations
 The best quotes from bash.org.ru
 
 We advice you to use Chrome Browser.
+
 1. Import database quotations.sql
 
 2. Allow cookies in your browser.
