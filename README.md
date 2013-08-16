@@ -5,6 +5,13 @@ The best quotes from bash.org.ru
 
 We advice you to use Chrome Browser.
 
+You need to install the next modules:
+
+- CGI::Cookie
+- WWW::Curl::Easy
+
+How to  make this work:
+
 1. Import database quotations.sql
 
 2. Allow cookies in your browser.
