@@ -23,20 +23,16 @@ sub get_quote_by_id($) {
     return undef if (not defined $_[0]);
     my $curl = WWW::Curl::Easy->new;
     $curl->setopt(CURLOPT_URL, 'http://bash.im/quote/'.$_[0]);
-    # A filehandle, reference to a scalar or reference to a typeglob can be used here.
     my $response_body;
     $curl->setopt(CURLOPT_WRITEDATA,\$response_body);
 
-    # Starts the actual request
     my $retcode = $curl->perform;
     my $text=undef;
-    # Looking at the results...
     if ($retcode == 0) {
-        #print("Transfer went ok\n");
         my $response_code = $curl->getinfo(CURLINFO_HTTP_CODE);
         my @array = split(/<\/div>/, $response_body);
 
-        foreach my $tmp (@array) { # Ugly code, but grep not work
+        foreach my $tmp (@array) { 
             $text = $tmp and last if ($tmp =~ m|class="text"|);
         }
         if(defined($text))
