@@ -8,7 +8,6 @@ my $cgi = CGI->new();
 my $login = $cgi->param('login');
 $login=~s/\s+//g;
 my $password = $cgi->param('password');
-$password=~s/\s+//g;
 
 my $dsn = "dbi:mysql:database=Quotations;host=localhost;port=3306";
 my $dbh = DBI->connect($dsn, "root", "PerlStudent") or (print $cgi->redirect('registration.pl?result=fail&comment=Can not connect to database.') and die "SQL Error: $DBI::errstr\n");
